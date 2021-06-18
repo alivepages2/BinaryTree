@@ -1,0 +1,4 @@
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://floreriajosafat.com/$1 [L,R=301]
+
+ErrorDocument 404 /admin.php?IDP=404.
