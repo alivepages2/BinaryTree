@@ -13,7 +13,6 @@ class BinaryTree {
     for (let i = 0; i < arr.length; i++) {
       this.insert(arr[i]);
     }
-    return this;
   }
 
   insert(data) {
@@ -54,19 +53,17 @@ class BinaryTree {
     }
   }
 
+  getHeightIni() {
+    return this.getHeight(this.root);
+  }
+
   getHeight(node) {
     if (node == null) return -1;
-    //let l = this.getHeight(node.left);
-    //let r = this.getHeight(node.right);
-    /*let sum =
-      Math.max(
-        this.getHeight(node.left, debug),
-        this.getHeight(node.right, debug)
-      ) + 1;
-      debug.push([node.value, sum]);*/
     return Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
+  }
 
-    return sum;
+  findNodeLevelIni(findvalue) {
+    return this.findNodeLevel(this.root, findvalue, 0);
   }
 
   findNodeLevel(node, findvalue, level) {
@@ -78,6 +75,11 @@ class BinaryTree {
         return this.findNodeLevel(node.right, findvalue, level + 1);
       return level;
     }
+  }
+
+  GetNeighborIni(findLevel, nodes) {
+    let level = this.findNodeLevel(this.root, findLevel, 0);
+    this.getNodeByLevel(this.root, level, nodes, 0);
   }
 
   getNodeByLevel(node, findLevel, result, level) {
