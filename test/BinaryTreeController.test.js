@@ -70,9 +70,56 @@ describe("Neightbors complex", () => {
   });
 });
 
+describe("Neightbors more in left", () => {
+  it("height more in left", async () => {
+    const res = await request(app).get("/api/v1/Neightbors/10,9,8,7,11,12/7");
+    expect(res.status).to.equal(200);
+    expect(res.body[0].left.value).to.equal("11");
+  });
+});
+
 describe("Neightbors no arguments", () => {
   it("height no arguments", async () => {
     const res = await request(app).get("/api/v1/Neightbors/");
+    expect(res.status).to.equal(404);
+  });
+});
+
+describe("BFS simple", () => {
+  it("BFS simple", async () => {
+    const res = await request(app).get("/api/v1/BFS/15,10,17");
+    expect(res.body.join(",")).to.equal("15,10,17");
+    expect(res.status).to.equal(200);
+  });
+});
+
+describe("BFS complex", () => {
+  it("BFS complex", async () => {
+    const res = await request(app).get("/api/v1/BFS/25,20,15,10,8,5,9");
+    expect(res.body.join(",")).to.equal("25,20,8,15,5,9,10");
+    expect(res.status).to.equal(200);
+  });
+});
+
+describe("BFS more in right", () => {
+  it("BFS more in left", async () => {
+    const res = await request(app).get("/api/v1/BFS/2,3,4,5,1,0");
+    expect(res.body.join(",")).to.equal("2,1,3,0,4,5");
+    expect(res.status).to.equal(200);
+  });
+});
+
+describe("BFS more in left", () => {
+  it("BFS more in left", async () => {
+    const res = await request(app).get("/api/v1/BFS/10,9,8,7,11,12");
+    expect(res.body.join(",")).to.equal("10,9,8,7,11,12");
+    expect(res.status).to.equal(200);
+  });
+});
+
+describe("BFS no arguments", () => {
+  it("height no arguments", async () => {
+    const res = await request(app).get("/api/v1/BFS/");
     expect(res.status).to.equal(404);
   });
 });
