@@ -18,6 +18,6 @@ put array tree at the end like csv
 
 (2) api/v1/Neightbors/25,20,15,10,8,5,9/25
 
-(4) api/v1/BFS/2,1,4
+(3) api/v1/BFS/2,1,4
 
 ```
