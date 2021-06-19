@@ -57,6 +57,7 @@ class BinaryTree {
     return this.getHeight(this.root);
   }
 
+  // get the max height from childs
   getHeight(node) {
     if (node == null) return -1;
     return Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
@@ -66,6 +67,7 @@ class BinaryTree {
     return this.findNodeLevel(this.root, findvalue, 0);
   }
 
+  // walk the tree until the value is found
   findNodeLevel(node, findvalue, level) {
     if (findvalue == node.value) {
       return level;
@@ -77,6 +79,8 @@ class BinaryTree {
     }
   }
 
+  // first find the level for value
+  // second get all nodes in this level
   GetNeighborIni(findLevel, nodes) {
     let level = this.findNodeLevel(this.root, findLevel, 0);
     this.getNodeByLevel(this.root, level, nodes, 0);
@@ -93,6 +97,7 @@ class BinaryTree {
     }
   }
 
+  // BFS algoritm
   BFS() {
     let data = [];
     let queue = [];

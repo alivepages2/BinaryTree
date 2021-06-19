@@ -2,18 +2,22 @@
 
 (1) Clone the repository
 
-(2) Remove the origin
+(2) Add Packages
 
-(3) Add Packages
+(4) Run npm start
 
-(4) Run the server:
+(5) Run npm test for testing
 
-- In Development (runs with nodemon)
-  ```sh
-  npm run dev
-  ```
+```
 
-- In Production 
-  ```sh
-  npm start
-  ```
+# API
+
+put array tree at the end like csv
+
+(1) /api/v1/Height/2,3,4
+
+(2) api/v1/Neightbors/25,20,15,10,8,5,9/25
+
+(4) api/v1/BFS/2,1,4
+
+```
