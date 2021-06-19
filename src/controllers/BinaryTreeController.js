@@ -3,10 +3,11 @@ const BinaryTree = require("../models/BinaryTree.js");
 class BinaryController {
   static getHeight(req, res) {
     let arr = req.params.toTree;
-    console.log(arr);
+
     let BST = new BinaryTree(arr.split(","));
-    let heigth = BST.getHeight(BST.root, 1);
-    return res.json({ heigth: heigth }).status(200);
+    let ret = BST.getHeight(BST.root);
+
+    return res.json({ heigth: ret }).status(200);
   }
   static GetNeighbor(req, res) {
     let arr = req.params.toTree;

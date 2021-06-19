@@ -5,12 +5,17 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --timeout 11000 --exit"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "mocha": "^9.0.1",
+    "should": "^13.2.3",
+    "chai": "^4.3.4",
+    "supertest": "^6.1.3"
+  }
 }

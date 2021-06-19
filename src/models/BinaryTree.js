@@ -56,14 +56,17 @@ class BinaryTree {
 
   getHeight(node) {
     if (node == null) return -1;
-    let left = this.getHeight(node.left);
-    let right = this.getHeight(node.right);
+    //let l = this.getHeight(node.left);
+    //let r = this.getHeight(node.right);
+    /*let sum =
+      Math.max(
+        this.getHeight(node.left, debug),
+        this.getHeight(node.right, debug)
+      ) + 1;
+      debug.push([node.value, sum]);*/
+    return Math.max(this.getHeight(node.left), this.getHeight(node.right)) + 1;
 
-    if (left > right) {
-      return left + 1;
-    } else {
-      return right + 1;
-    }
+    return sum;
   }
 
   findNodeLevel(node, findvalue, level) {

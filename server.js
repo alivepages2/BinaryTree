@@ -9,3 +9,5 @@ app.use("/api/v1", apiRouter);
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
+
+module.exports = app;
