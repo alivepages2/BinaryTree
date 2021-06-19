@@ -41,3 +41,38 @@ describe("height 1 arguments", () => {
     expect(res.body.heigth).to.equal(0);
   });
 });
+
+describe("height no arguments", () => {
+  it("height no arguments", async () => {
+    const res = await request(app).get("/api/v1/Height/");
+    expect(res.status).to.equal(404);
+  });
+});
+
+describe("Neightbors simple", () => {
+  it("Neightbors simple", async () => {
+    const res = await request(app).get("/api/v1/Neightbors/15,10,17/15");
+    expect(res.status).to.equal(200);
+    expect(res.body[0].right.value).to.equal("17");
+    expect(res.body[0].left.value).to.equal("10");
+  });
+});
+
+describe("Neightbors complex", () => {
+  it("Neightbors complex", async () => {
+    const res = await request(app).get(
+      "/api/v1/Neightbors/25,20,15,10,8,5,9/25"
+    );
+
+    expect(res.status).to.equal(200);
+    expect(res.body[0].right.value).to.equal("8");
+    expect(res.body[0].left.value).to.equal("20");
+  });
+});
+
+describe("Neightbors no arguments", () => {
+  it("height no arguments", async () => {
+    const res = await request(app).get("/api/v1/Neightbors/");
+    expect(res.status).to.equal(404);
+  });
+});
