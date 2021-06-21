@@ -1,3 +1,5 @@
+const util = require("util");
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -34,7 +36,8 @@ class BinaryTree {
   insertNode(node, newNode) {
     // if the data is less than the node
     // data move left of the tree
-    if (newNode.value < node.value) {
+
+    if (parseInt(newNode.value) < parseInt(node.value)) {
       // if left is null insert node here
       if (node.left === null) node.left = newNode;
       // if left is not null recur until
@@ -102,6 +105,7 @@ class BinaryTree {
     let data = [];
     let queue = [];
     let node = this.root;
+
     queue.push(node);
     while (queue.length) {
       node = queue.shift();

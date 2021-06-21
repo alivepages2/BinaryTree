@@ -30,7 +30,7 @@ describe("height more in left", () => {
   it("height more in left", async () => {
     const res = await request(app).get("/api/v1/Height/10,9,8,7,11,12");
     expect(res.status).to.equal(200);
-    expect(res.body.heigth).to.equal(5);
+    expect(res.body.heigth).to.equal(3);
   });
 });
 
@@ -61,20 +61,19 @@ describe("Neightbors simple", () => {
 describe("Neightbors complex", () => {
   it("Neightbors complex", async () => {
     const res = await request(app).get(
-      "/api/v1/Neightbors/25,20,15,10,8,5,9/25"
+      "/api/v1/Neightbors/25,20,15,10,8,5,9/8"
     );
 
     expect(res.status).to.equal(200);
-    expect(res.body[0].right.value).to.equal("8");
-    expect(res.body[0].left.value).to.equal("20");
+    expect(res.body[0].right.value).to.equal("9");
   });
 });
 
 describe("Neightbors more in left", () => {
   it("height more in left", async () => {
-    const res = await request(app).get("/api/v1/Neightbors/10,9,8,7,11,12/7");
+    const res = await request(app).get("/api/v1/Neightbors/10,9,8,7,11,12/10");
     expect(res.status).to.equal(200);
-    expect(res.body[0].left.value).to.equal("11");
+    expect(res.body[0].right.value).to.equal("11");
   });
 });
 
@@ -96,7 +95,7 @@ describe("BFS simple", () => {
 describe("BFS complex", () => {
   it("BFS complex", async () => {
     const res = await request(app).get("/api/v1/BFS/25,20,15,10,8,5,9");
-    expect(res.body.join(",")).to.equal("25,20,8,15,5,9,10");
+    expect(res.body.join(",")).to.equal("25,20,15,10,8,5,9");
     expect(res.status).to.equal(200);
   });
 });
@@ -112,7 +111,7 @@ describe("BFS more in right", () => {
 describe("BFS more in left", () => {
   it("BFS more in left", async () => {
     const res = await request(app).get("/api/v1/BFS/10,9,8,7,11,12");
-    expect(res.body.join(",")).to.equal("10,9,8,7,11,12");
+    expect(res.body.join(",")).to.equal("10,9,11,8,12,7");
     expect(res.status).to.equal(200);
   });
 });
